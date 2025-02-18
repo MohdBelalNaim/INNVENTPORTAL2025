@@ -60,5 +60,5 @@ entity SprintData: cuid  {
   solutionSpace          : Integer;
   execution              : Integer;
   approachToSolveProblem : Integer;
-  comments:String;
+  comments: String(1000);
 }
