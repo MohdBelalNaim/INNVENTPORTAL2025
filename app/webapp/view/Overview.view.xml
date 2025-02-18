@@ -1,0 +1,32 @@
+<mvc:View
+    xmlns="sap.m"
+    xmlns:mvc="sap.ui.core.mvc"
+    controllerName="innventproject.controller.Overview">
+
+    <Page title="Innvent for Scholars Overview">
+
+        <!-- Header content -->
+        <headerContent>
+            <Text text="Welcome to Innvent for Scholars" class="sapUiSmallMargin"/>
+        </headerContent>
+
+        <!-- Main content -->
+        <content>
+            <!-- Add your main content here -->
+            <!-- <List
+                headerText="Hackathon Projects"
+                items="{path: '/projects'}">
+                <StandardListItem
+                    title="{name}"
+                    description="{description}"
+                    info="{status}"
+                    type="Navigation"
+                    press="onProjectPress"/>
+            </List> -->
+        </content>
+
+
+
+    </Page>
+
+</mvc:View>

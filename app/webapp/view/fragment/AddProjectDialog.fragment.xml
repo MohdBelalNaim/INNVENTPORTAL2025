@@ -1,0 +1,56 @@
+<core:FragmentDefinition xmlns:smartfield="sap.ui.comp.smartfield"
+    xmlns="sap.m"
+    xmlns:l="sap.ui.layout"
+    xmlns:f="sap.ui.layout.form"
+    xmlns:sf="sap.ui.comp.smartform"
+    xmlns:core="sap.ui.core"
+    xmlns:smartmultiedit="sap.ui.comp.smartmultiedit">
+    <Dialog title="Add Project" class="sapUiContentPadding" id="multipleEditingDialog" contentWidth="30rem" horizontalScrolling="false">
+        <content>
+            <f:SimpleForm id="simpleForm">
+                <f:content>
+                    <Label text="Project Name" />
+                    <Input id="projectname" change="onFieldChangeAdd" />
+
+                    <Label text="Problem Statement" />
+                    <Input id="problemstatement" change="onFieldChangeAdd" />
+
+                    <Label text="Overall Effort" />
+                    <Input id="overallefforts" change="onFieldChangeAdd" />
+
+                    <Label text="Technologies" />
+                    <Input id="technologies" change="onFieldChangeAdd" />
+
+                    <Label text="Setup" />
+                    <Input id="setup" change="onFieldChangeAdd" />
+
+                    <Label text="Pre-requisites" />
+                    <Input id="prerequisites" change="onFieldChangeAdd" />
+
+                    <Label text="Expected Deliverables" />
+                    <Input id="expectedDeliverables" change="onFieldChangeAdd" />
+
+                    <Label text="SAP Benefits" />
+                    <Input id="sapbenefits" change="onFieldChangeAdd" />
+
+                    <Label id="idMentorName" text="Mentor Name"/>
+                    <Input id="mentorName" change="onFieldChangeAdd"/>
+
+                    <Label id="idProjectOwnerName" text="Project Owner Name"/>
+                    <Input id="projectOwnerName" change="onFieldChangeAdd"/>
+
+                    <Label id="idLobHead" text="LOB Head"/>
+                    <Input id="lobHead" change="onFieldChangeAdd"/>
+
+                    <Label id="idLobName" text="LOB Name"/>
+                    <Input id="lobName" change="onFieldChangeAdd"/>
+
+                </f:content>
+            </f:SimpleForm>
+        </content>
+        <buttons>
+            <Button id="_IDGenButton0" icon="sap-icon://save" press="onAddDialog" type="Emphasized" />
+            <Button id="_IDGenButton2" icon="sap-icon://sys-cancel" press="onCloseAddDialog" />
+        </buttons>
+    </Dialog>
+</core:FragmentDefinition>

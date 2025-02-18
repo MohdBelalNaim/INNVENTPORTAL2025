@@ -1,0 +1,195 @@
+<mvc:View
+  xmlns:mvc="sap.ui.core.mvc"
+  xmlns="sap.m"
+  xmlns:l="sap.ui.layout"
+  xmlns:smartForm="sap.ui.comp.smartform"
+  xmlns:f="sap.ui.layout.form"
+  xmlns:t="sap.ui.table"
+  controllerName="innventproject.controller.StudentRegistration"
+  xmlns:form="sap.ui.layout.form"
+  xmlns:u="sap.ui.unified"
+  xmlns:smartField="sap.ui.comp.smartfield"
+  xmlns:core="sap.ui.core"
+  xmlns:uxap="sap.uxap"
+>
+<IllustratedMessage
+        id="StudentSuccess"
+        title="Registration Succesful"
+        visible="false"
+        description="Congratulations! You have regitered successfully for Innvent for Scholars.
+        Thank you!"
+        illustrationSize="Dialog"
+        illustrationType="tnt-Mission">
+    </IllustratedMessage>
+  <Page
+    id="student-register"
+    title="Student Registration"
+  >
+    <uxap:ObjectPageLayout>
+      <uxap:sections>
+        <uxap:ObjectPageSection title="Personal Details">
+          <uxap:subSections>
+            <uxap:ObjectPageSubSection>
+              <uxap:blocks>
+                <f:SimpleForm
+                  id="projectForm"
+                  class="sapUiResponsiveContentPadding"
+                  xmlns:f="sap.ui.layout.form"
+                  editable="false"
+                >
+                  <f:content>
+                    <Label text="INumber" />
+                    <Input
+                      required="true"
+                      id="inumber"
+                      valueLiveUpdate='true'
+                      liveChange="validateDetails"
+                      width="100%"
+                      value="{student>/inumber}"
+                    />
+
+                    <Label text="Name" />
+                    <Input
+                      required="true"
+                      id="name"
+                      valueLiveUpdate='true'
+                      liveChange="validateDetails"
+                      width="100%"
+                      value="{student>/name}"
+                    />
+
+                    <Label text="Email" />
+                    <Input
+                      required="true"
+                      id="email"
+                      valueLiveUpdate='true'
+                      liveChange="validateDetails"
+                      width="100%"
+                      value="{student>/email}"
+                    />
+
+                    <!-- <Label text="Mobile Number" />
+                    <Input
+                      required="true"
+                      id="mobile"
+                      valueLiveUpdate='true'
+                      liveChange="validateDetails"
+                      width="100%"
+                      value="{student>/mobile}"
+                    /> -->
+
+                    <Label text="Batch" />
+                    <Select
+                      selectedKey="{student>/batch}"
+                      items="{student>/batchList}"
+                      required = "true"
+                    >
+                      <core:Item
+                        key="{student>key}"
+                        text="{student>key}"
+                      />
+                    </Select>
+                  </f:content>
+                </f:SimpleForm>
+              </uxap:blocks>
+            </uxap:ObjectPageSubSection>
+          </uxap:subSections>
+        </uxap:ObjectPageSection>
+
+        <uxap:ObjectPageSection title="Skills">
+          <uxap:subSections>
+            <uxap:ObjectPageSubSection titleUppercase="false">
+              <VBox
+                id="tempList"
+                height="100%"
+              >
+                <HBox
+                  height="auto"
+                  justifyContent="End"
+                >
+                  <HBox>
+                    <Button
+                      type="Transparent"
+                      icon="sap-icon://add"
+                      press="addSkill"
+                    />
+                    <Button
+                      id="deleteBtn"
+                      type="Transparent"
+                      icon="sap-icon://delete"
+                      press="deleteSkill"
+                    />
+                  </HBox>
+                </HBox>
+
+                <Table
+                  id="skillTable"
+                  mode="MultiSelect"
+                  fixedLayout="false"
+                  items="{path: 'student>/skills'}"
+                  sticky="ColumnHeaders"
+                  showSeparators="All"
+                  growing="true"
+                  growingThreshold="20"
+                  growingScrollToLoad="true"
+                >
+                  <columns>
+                    <Column>
+                      <Text text="Skill Name" />
+                    </Column>
+                    <Column>
+                      <Text text="Skill Level" />
+                    </Column>
+                  </columns>
+
+                  <items>
+                    <ColumnListItem type="Active">
+                      <cells>
+                        <Select
+                          selectedKey="{student>skill}"
+                          valueState="{student>state}"
+                          valueStateText="{student>stateText}"
+                          items="{path: 'student>/skillList', templateShareable: false}"
+                          change="verifySkills"
+                        >
+                          <core:Item
+                            key="{student>skill_id}"
+                            text="{student>skill}"
+                          />
+                        </Select>
+                        <Select
+                          selectedKey="{student>level}"
+                          items="{path:'student>/levels', templateShareable: false}"
+                          change="verifySkills"
+                        >
+                          <core:Item
+                            key="{student>key}"
+                            text="{student>key}"
+                          />
+                        </Select>
+                      </cells>
+                    </ColumnListItem>
+                  </items>
+                </Table>
+
+                <HBox
+                  justifyContent="End"
+                  class="sapUiLargeMarginTop"
+                  width="100%"
+                >
+                  <items>
+                    <Button
+                      text="Submit"
+                      type="Emphasized"
+                      press="onRegister"
+                    />
+                  </items>
+                </HBox>
+              </VBox>
+            </uxap:ObjectPageSubSection>
+          </uxap:subSections>
+        </uxap:ObjectPageSection>
+      </uxap:sections>
+    </uxap:ObjectPageLayout>
+  </Page>
+</mvc:View>

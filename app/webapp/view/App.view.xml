@@ -1,0 +1,137 @@
+<mvc:View
+    controllerName="innventproject.controller.App"
+    xmlns:html="http://www.w3.org/1999/xhtml"
+    xmlns:tnt="sap.tnt"
+    xmlns:mvc="sap.ui.core.mvc"
+    displayBlock="true"
+    xmlns="sap.m"
+>
+    <tnt:ToolPage
+        id="app"
+        class="sapUiDemoToolPage"
+    >
+        <tnt:header>
+            <tnt:ToolHeader>
+                <Button
+                    id="sideNavigationToggleButton"
+                    icon="sap-icon://menu2"
+                    type="Transparent"
+                    press="onSideNavButtonPress"
+                    tooltip="tooltip"
+                >
+                    <layoutData>
+                        <OverflowToolbarLayoutData priority="NeverOverflow" />
+                    </layoutData>
+                </Button>
+                <Image src="images/SAP_Logo.png" />
+                <Title text="Innvent" />
+                <ToolbarSpacer />
+                <Button
+                    icon="sap-icon://sys-help"
+                    id="helpButtonWC"
+                    type="Transparent"
+                    tooltip="Help"
+                >
+                    <layoutData>
+                        <OverflowToolbarLayoutData
+                            priority="NeverOverflow"
+                            closeOverflowOnInteraction="false"
+                        />
+                    </layoutData>
+                </Button>
+                <MenuButton text="{userapi>/userId}">
+                    <menu>
+                        <Menu>
+                            <!-- <MenuItem text="User Guide" icon="sap-icon://message-information" press="openUserGuide" /> -->
+                            <MenuItem
+                                text="Logout"
+                                icon="sap-icon://log"
+                                press="logoutUser"
+                            />
+                        </Menu>
+                    </menu>
+                </MenuButton>
+            </tnt:ToolHeader>
+        </tnt:header>
+        <tnt:sideContent>
+            <tnt:SideNavigation
+                id="sideNavigation"
+                expanded="true"
+                itemSelect="onItemSelect"
+                selectedKey="Overview"
+            >
+                <tnt:NavigationList id="sideNav">
+                    <tnt:NavigationListItem
+                        id="Overview"
+                        text="Overview"
+                        key="Overview"
+                        icon="sap-icon://workflow-tasks"
+                    />
+                    <tnt:NavigationListItem
+                        id="ProjectList"
+                        text="Project List"
+                        key="Projectdata"
+                        icon="sap-icon://workflow-tasks"
+                        visible="{visibility>/adminAccess}" 
+                    />
+                    <tnt:NavigationListItem
+                        id="StudentRegistration"
+                        text="Student Registration"
+                        key="StudentRegistration"
+                        icon="sap-icon://study-leave"
+                        visible="{=${visibility>/evaluatorAccess}!==true}"
+
+                    />
+                    <tnt:NavigationListItem 
+                        id="Scoring" 
+                        text="Evaluation" 
+                        key="Scoring" 
+                        icon="sap-icon://approvals"
+                        visible="{visibility>/evaluatorAccess}"
+                    />
+                    <!-- <tnt:NavigationListItem id="VotingPage" text="Voting" key="VotingPage" icon="sap-icon://kpi-managing-my-area"></tnt:NavigationListItem> -->
+                    <!-- <tnt:NavigationListItem visible="{userapi>/dashboard}" id="InnventDashboard" text="LoB Dashboard" key="InnventDashboard" icon="sap-icon://activity-individual" app:for="InnventDashboard"></tnt:NavigationListItem> -->
+                
+                    <tnt:NavigationListItem
+                    id="ProjectForm"
+                    text="Project Submission Form"
+                    key="ProjectForm"
+                    icon="sap-icon://create-form"
+                    visible="{=${visibility>/evaluatorAccess}!==true}"
+
+                />
+
+                <tnt:NavigationListItem
+                    id="EvaluationData"
+                    text="Evaluation Data"
+                    key="EvaluationData"
+                    icon="sap-icon://notes"
+                    visible="{visibility>/adminAccess}"
+                />
+                
+                </tnt:NavigationList>
+                <tnt:fixedItem>
+                    <tnt:NavigationList id="sideNavFixed">
+                        <tnt:NavigationListItem
+                            text="Help"
+                            icon="sap-icon://sys-help"
+                            key="help"
+                        />
+                        
+                    </tnt:NavigationList>
+                </tnt:fixedItem>
+            </tnt:SideNavigation>
+        </tnt:sideContent>
+        <tnt:mainContents>
+            <App id="mainContent" />
+        </tnt:mainContents>
+    </tnt:ToolPage>
+    <IllustratedMessage
+    id="unauthorizedAccess"
+    title="Unauthorized"
+    visible="false"
+    description="You don't have viewing access. Contact administrators."
+    illustrationSize="Dialog"
+    illustrationType="tnt-UnsuccessfulAuth">
+</IllustratedMessage>
+</mvc:View>

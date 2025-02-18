@@ -1,0 +1,91 @@
+<mvc:View
+	controllerName="innventproject.controller.VotingPage"
+	xmlns:mvc="sap.ui.core.mvc"
+	xmlns="sap.m"
+	xmlns:l="sap.ui.layout"
+	xmlns:f="sap.ui.layout.form"
+	xmlns:core="sap.ui.core"
+	displayBlock="true"
+	height="100%"
+	busyIndicatorDelay="0"
+>
+
+	<!-- <VBox class="sapUiSmallMargin" width="100%" height="100%">
+		<f:Form id="FormChange354"
+			editable="true">
+			<f:title>
+				<core:Title text="InnVent 2k24 Voting For Teams" />
+			</f:title>
+			<f:layout>
+				<f:ResponsiveGridLayout
+					labelSpanXL="3"
+					labelSpanL="3"
+					labelSpanM="3"
+					labelSpanS="12"
+					adjustLabelSpan="false"
+					emptySpanXL="4"
+					emptySpanL="4"
+					emptySpanM="4"
+					emptySpanS="0"
+					columnsXL="1"
+					columnsL="1"
+					columnsM="1"
+					singleContainerFullSize="true" />
+			</f:layout>
+			<f:formContainers>
+				<f:FormContainer>
+					<f:formElements>
+						<f:FormElement label="Team Name">
+							<f:fields>
+								<Input value="{voting>/teamName}" id="name"/>
+							</f:fields>
+						</f:FormElement>
+						<f:FormElement label="Team Description">
+							<f:fields>
+								<Input value="{voting>/teamDescription}"/>
+							</f:fields>
+						</f:FormElement>
+						
+						<f:FormElement label="Rating">
+							<f:fields>
+								<Slider id="slider" max="10" enableTickmarks="true" class="sapUiSmallMarginBottom" width="100%" value="0" change="onSliderChange">
+									<ResponsiveScale tickmarksBetweenLabels="1"/>
+								</Slider>
+							</f:fields>
+						</f:FormElement>
+					</f:formElements>
+				</f:FormContainer>
+			</f:formContainers>
+		</f:Form>
+	</VBox> -->
+	<Page title="InnVent 2k24 Voting For Teams" backgroundDesign="Solid">
+		<content>
+			<VBox  displayInline="false" alignContent="Center" wrap="Wrap" height="100%" class="sapUiLargeMarginTop">
+				<HBox alignItems="Center" justifyContent="SpaceBetween" class="sapUiLargeMarginBeginEnd" >
+					<Label text="Team Name :" class="sapUiLargeMarginBeginEnd" design="Bold" labelFor="teamName"></Label>
+					<TextArea id="teamName" value="{voting>/teamName}" width="500px" height="50px"></TextArea>
+				</HBox>
+
+				<HBox alignItems="Center" justifyContent="SpaceBetween" class=" sapUiLargeMarginBeginEnd sapUiMediumMarginBottom">
+					<Label text="Team Description :" class="sapUiLargeMarginBeginEnd" design="Bold" labelFor="teamDescription" ></Label>
+					<TextArea id="teamDescription" value="{voting>/teamDescription}" width="500px" height="150px"></TextArea>
+				</HBox>
+
+				<HBox alignItems="Center" justifyContent="SpaceBetween" class="sapUiLargeMarginBeginEnd"  >
+					<Label text="Rating:" class="sapUiLargeMarginBeginEnd" design="Bold" labelFor="slider"></Label>
+					<Slider id="slider" max="10" enableTickmarks="true" class="sapUiSmallMarginBottom" width="500px" value="0" change="onSliderChange">
+						<ResponsiveScale tickmarksBetweenLabels="1"/>
+					</Slider>
+				</HBox>
+
+				<HBox alignContent="End" justifyContent="End" class="sapUiLargeMarginBeginEnd"  >
+					<Button text="Vote" class="sapUiLargeMarginBegin sapUiLargeMarginTop" press="onVoting"></Button>
+				</HBox>
+
+				
+		</VBox>
+		</content>
+
+	</Page>
+
+</mvc:View>

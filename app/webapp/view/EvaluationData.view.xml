@@ -1,0 +1,24 @@
+<mvc:View controllerName="innventproject.controller.EvaluationData"
+    xmlns="sap.m"
+    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+    xmlns:uxap="sap.uxap"
+    xmlns:smartFilterBar="sap.ui.comp.smartfilterbar"
+    xmlns:smartTable="sap.ui.comp.smarttable">
+    <Page id="page" title="Evaluation Data">
+
+        <smartFilterBar:SmartFilterBar id="smartFilterBar" entitySet="SprintData" enableBasicSearch="true" showClearOnFB="true" width="100%" class="sapUiTinyMargin">
+            <smartFilterBar:controlConfiguration>
+                <smartFilterBar:ControlConfiguration id="filter1_sprint" key="projectname_projectname" visibleInAdvancedArea="true" label="Project Name"/>
+                <smartFilterBar:ControlConfiguration id="filter2_sprint" key="sprintround" visibleInAdvancedArea="true" label="Sprint Round"/>
+                <smartFilterBar:ControlConfiguration id="filter3_sprint" key="problemStatement" visibleInAdvancedArea="true" label="Problem Statement"/>
+            </smartFilterBar:controlConfiguration>
+            <smartFilterBar:layoutData>
+                <FlexItemData id="flex1" shrinkFactor="0" />
+            </smartFilterBar:layoutData>
+        </smartFilterBar:SmartFilterBar>
+
+        <smartTable:SmartTable id="ID" entitySet="SprintData" height="100%" initiallyVisibleFields="projectname_projectname,sprintround,problemStatement,presentationPoints,solutionSpace,execution,approachToSolveProblem,comments" smartFilterId="smartFilterBar" tableType="Table" beforeExport="onBeforeExport" useVariantManagement="false" useTablePersonalisation="true" header="Scores" showRowCount="true" persistencyKey="SmartTableAnalytical_Explored" enableAutoBinding="true" demandPopin="true" class="sapUiResponsiveContentPadding" enableAutoColumnWidth="true">
+        </smartTable:SmartTable>
+
+    </Page>
+</mvc:View>

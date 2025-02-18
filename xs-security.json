@@ -1,0 +1,75 @@
+{
+  "xsappname": "innventtest",
+  "tenant-mode": "dedicated",
+  "description": "Security profile of called application",
+  "scopes": [
+    {
+      "name": "$XSAPPNAME.adminAccess",
+      "description": "With this scope, admin can update/change/view entries"
+    },
+    {
+      "name": "$XSAPPNAME.scholarAccess",
+      "description": "With this scope, user can register"
+    },
+    {
+      "name": "$XSAPPNAME.evaluatorAccess",
+      "description": "With this scope, user can view score"
+    }
+  ],
+  "role-templates": [
+    {
+      "name": "adminAccess",
+      "description": "Role where admin can update/change/run jobs",
+      "scope-references": [
+        "$XSAPPNAME.adminAccess"
+      ]
+    },
+    {
+      "name": "scholarAccess",
+      "description": "Role where user can view jobs",
+      "scope-references": [
+        "$XSAPPNAME.scholarAccess"
+      ]
+    },
+    {
+      "name": "evaluatorAccess",
+      "description": "Role where user can read data but not run jobs",
+      "scope-references": [
+        "$XSAPPNAME.evaluatorAccess"
+      ]
+    }
+  ],
+  "role-collections": [
+    {
+      "name": "adminAccess",
+      "description": "Admin has all rights",
+      "role-template-references": [
+        "$XSAPPNAME.adminAccess"
+      ]
+    },
+    {
+      "name": "scholarAccess",
+      "description": "Scholar has registration rights",
+      "role-template-references": [
+        "$XSAPPNAME.scholarAccess"
+      ]
+    },
+    {
+      "name": "evaluatorAccess",
+      "description": "Evaluator has rights to view scores",
+      "role-template-references": [
+        "$XSAPPNAME.evaluatorAccess"
+      ]
+    }
+  ],
+  "oauth2-configuration": {
+    "token-validity": 86300,
+    "refresh-token-validity": 259200,
+    "redirect-uris": [
+      "https://innvent-for-scholars-dev.cfapps.eu10-004.hana.ondemand.com/login/callback",
+      "https://innvent-for-scholars-dev-innventui.cfapps.eu10-004.hana.ondemand.com/login/callback",
+      "http://localhost:5000/login/callback"
+    ]
+  },
+  "attributes": []
+}

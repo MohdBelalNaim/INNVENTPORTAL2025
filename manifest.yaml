@@ -1,0 +1,11 @@
+---
+applications:
+  - name: sandbox-innvent-pgadmin
+    docker:
+      image: dpage/pgadmin4:2023-05-02-1
+    instances: 1
+    health-check-type: process
+    env:
+      PGADMIN_DEFAULT_EMAIL: innvent@sap.com
+      PGADMIN_DEFAULT_PASSWORD: innvent123*
+      PGADMIN_LISTEN_ADDRESS: 0.0.0.0

@@ -1,0 +1,103 @@
+<core:FragmentDefinition xmlns:smartfield="sap.ui.comp.smartfield"
+    xmlns="sap.m"
+    xmlns:l="sap.ui.layout"
+    xmlns:f="sap.ui.layout.form"
+    xmlns:sf="sap.ui.comp.smartform"
+    xmlns:core="sap.ui.core"
+    xmlns:smartmultiedit="sap.ui.comp.smartmultiedit">
+    <Dialog title="Edit Box" class="sapUiContentPadding" id="multipleEditingDialog" contentWidth="30rem" horizontalScrolling="false">
+        <content>
+            <smartmultiedit:Container entitySet="Projects" id="multiEditContainer">
+                <smartmultiedit:layout>
+                    <sf:SmartForm id="_IDGenSmartForm1" editTogglable="true">
+                        <sf:groups>
+                            <sf:Group id="_IDGenGroup1">
+                                <sf:GroupElement id="groupElement1">
+                                    <sf:elements>
+                                        <Label text="Project Name" class="thick " />
+                                        <smartfield:SmartField editable="true" change="onFieldChangeEdit" id="pn_edit" value="{projectname}" />
+                                    </sf:elements>
+                                </sf:GroupElement>
+                                <sf:GroupElement id="groupElement2">
+                                    <sf:elements>
+                                        <Label text="Problem Statement" class="thick " />
+                                        <smartfield:SmartField editable="true" change="onFieldChangeEdit" id="ps_edit" value="{problemstatement}" />
+                                    </sf:elements>
+                                </sf:GroupElement>
+                                <sf:GroupElement id="groupElement3">
+                                    <sf:elements>
+                                        <Label text="Overall Efforts" class="thick " />
+                                        <smartfield:SmartField editable="true" change="onFieldChangeEdit" id="oe_edit" value="{overallefforts}" />
+                                    </sf:elements>
+                                </sf:GroupElement>
+                                <sf:GroupElement id="groupElement4">
+                                    <sf:elements>
+                                        <Label text="Technologies" class="thick " />
+                                        <smartfield:SmartField editable="true" change="onFieldChangeEdit" id="tech_edit" value="{technologies}" />
+                                    </sf:elements>
+                                </sf:GroupElement>
+                                <sf:GroupElement id="groupElement5">
+                                    <sf:elements>
+                                        <Label text="Setup" class="thick " />
+                                        <smartfield:SmartField editable="true" change="onFieldChangeEdit" id="setup_edit" value="{setup}" />
+                                    </sf:elements>
+                                </sf:GroupElement>
+                                <sf:GroupElement id="groupElement6">
+                                    <sf:elements>
+                                        <Label text="Pre-requisites" class="thick " />
+                                        <smartfield:SmartField editable="true" change="onFieldChangeEdit" id="pr_edit" value="{prerequisites}" />
+                                    </sf:elements>
+                                </sf:GroupElement>
+                                <sf:GroupElement id="groupElement7">
+                                    <sf:elements>
+                                        <Label text="Expected Deliverables" class="thick " />
+                                        <smartfield:SmartField editable="true" change="onFieldChangeEdit" id="ed_edit" value="{expecteddeliverables}" />
+                                    </sf:elements>
+                                </sf:GroupElement>
+                                <sf:GroupElement id="groupElement8">
+                                    <sf:elements>
+                                        <Label text="SAP Benefits" class="thick " />
+                                        <smartfield:SmartField editable="true" change="onFieldChangeEdit" id="sb_edit" value="{sapbenefits}" />
+                                    </sf:elements>
+                                </sf:GroupElement>
+
+                                <sf:GroupElement id="groupElement9">
+                                    <sf:elements>
+                                        <Label text="Mentor Name" class="thick " />
+                                        <smartfield:SmartField editable="true" change="onFieldChangeEdit" id="mentor_edit" value="{mentorName}" />
+                                    </sf:elements>
+                                </sf:GroupElement>
+
+                                <sf:GroupElement id="groupElement10">
+                                    <sf:elements>
+                                        <Label text="Project Owner Name" class="thick " />
+                                        <smartfield:SmartField editable="true" change="onFieldChangeEdit" id="po_edit" value="{projectOwnerName}" />
+                                    </sf:elements>
+                                </sf:GroupElement>
+
+                                <sf:GroupElement id="groupElement11">
+                                    <sf:elements>
+                                        <Label text="LOB Head" class="thick " />
+                                        <smartfield:SmartField editable="true" change="onFieldChangeEdit" id="lobh_edit" value="{lobHead}" />
+                                    </sf:elements>
+                                </sf:GroupElement>
+
+                                <sf:GroupElement id="groupElement12">
+                                    <sf:elements>
+                                        <Label text="LOB Name" class="thick " />
+                                        <smartfield:SmartField editable="true" change="onFieldChangeEdit" id="lobn_edit" value="{lobName}" />
+                                    </sf:elements>
+                                </sf:GroupElement>
+                            </sf:Group>
+                        </sf:groups>
+                    </sf:SmartForm>
+                </smartmultiedit:layout>
+            </smartmultiedit:Container>
+        </content>
+        <buttons>
+            <Button icon="sap-icon://save" press="onSaveDialog" type="Emphasized" />
+            <Button icon="sap-icon://delete" press="onDeleteDialog" type="Emphasized" />
+            <Button icon="sap-icon://sys-cancel" press="onCloseEditDialog" />
+        </buttons>
+    </Dialog>
+</core:FragmentDefinition>

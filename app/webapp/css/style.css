@@ -1,0 +1,92 @@
+/* Enter your custom styles here */
+/* Enter your custom styles here */
+.selectHeading{
+    font-size: 5rem;
+    align-content: center;
+    justify-content: center;
+    margin: 1rem;
+}
+
+.selectScreenComboBox{
+    margin : 1.2rem
+}
+
+.landingWelcome{
+    font-size: 3rem;
+    align-content: center;
+    justify-content: center;
+    margin: 1rem;
+}
+.landingText1{
+    font-size: 1rem;
+    margin: 1rem;
+}
+.landingText2{
+    font-size: 1rem;
+    margin: 1rem;
+}
+.landingButton{
+    margin: 0.8rem;
+}
+.landingComboBox{
+    width: 150px;
+    margin-right: 1.2rem;
+}
+.productPageHeader{
+    font-size: 1rem;
+}
+
+
+/* .sapMTitle {    
+    font-size: 20px;
+  } */
+  
+
+ .myCustomTile{
+    border: 3px solid #008FD3; /* Change "blue" to the desired color */
+   padding: 1px;
+   justify-content: center;
+   align-items: center
+ }
+
+ .myCustomTile{
+    border: 3px solid #008FD3; /* Change "blue" to the desired color */
+   padding: 1px;
+   justify-content: center;
+   align-items: center;
+   margin-bottom: 10px;
+
+ }
+
+
+
+ .myTextClass{
+   /* flex: 1;  make the text control grow to fill the remaining space */
+    color:solid black;
+    font-weight: bold;
+    font-size: large;
+ }
+
+ .myHBoxClass{
+    border-bottom: 3px solid #ccc;
+    margin: 1rem;
+ }
+
+
+ .vbox-vertical-line {
+    border-right: 1px solid #ccc;
+    /* border-left: 1px solid #ccc; */
+    /* margin-left: 10px;
+    padding-left: 10px;
+    width: 300px; */
+}
+
+.tileBorder{
+    border-color: #008FD3;
+    float: left;
+}
+
+.tileBorderExisting{
+    border-color:#4FB81C;
+    float: left;
+}

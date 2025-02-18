@@ -1,0 +1,49 @@
+<core:FragmentDefinition xmlns:l="sap.ui.layout" xmlns="sap.m" xmlns:core="sap.ui.core"
+controllerName="innvent.controller.Scoring">
+    <Dialog title="Evaluation" class="sapUiResponsivePadding--content" contentWidth="69%" contentHeight="75%"
+        draggable="true" resizable="true" >
+        <content>
+            <VBox class = "sapUiSmallMarginTopBottom">
+           <Label text="Problem Statement" />
+		<Slider id="ps" min="0" max="10" required = "true"  enableTickmarks="true" class="sapUiSmallMarginBottom" width="100%">
+			<ResponsiveScale tickmarksBetweenLabels="1"/>
+      </Slider>
+    </VBox>
+    <VBox class = "sapUiSmallMarginTopBottom">
+<Label text="Presentation Points" />
+<Slider id="pp" min="0" max="10" required = "true" enableTickmarks="true" class="sapUiSmallMarginBottom" width="100%">
+    <ResponsiveScale tickmarksBetweenLabels="1"/>
+</Slider>
+</VBox>
+<VBox class = "sapUiSmallMarginTopBottom">
+
+<Label text="Solution Space" />
+<Slider id="ss" min="0" max="10" required = "true" enableTickmarks="true" class="sapUiSmallMarginBottom" width="100%">
+    <ResponsiveScale tickmarksBetweenLabels="1"/>
+</Slider>
+</VBox>
+<VBox class = "sapUiSmallMarginTopBottom">
+<Label text="Execution" />
+<Slider id="ex" min="0" max="10" required = "true" enableTickmarks="true" class="sapUiSmallMarginBottom" width="100%">
+    <ResponsiveScale tickmarksBetweenLabels="1"/>
+</Slider>
+</VBox>
+<VBox class = "sapUiSmallMarginTopBottom">
+<Label text="Approach to Solve Problem"/>
+<Slider id="ap" min="0" max="10" required = "true" enableTickmarks="true" class="sapUiSmallMarginBottom" width="100%">
+    <ResponsiveScale tickmarksBetweenLabels="1"/>
+</Slider>
+</VBox>
+<VBox >
+<Label text="Additional Remarks"/>
+<TextArea id="ar" rows="4" width="100%"/>
+</VBox>
+    </content>
+     <beginButton>
+<Button class="sapUiTinyMarginEnd" text="Cancel" press="onCloseDialog" type="Reject" />
+</beginButton>
+<endButton>
+<Button class="sapUiTinyMarginEnd" text="Save" press="onSubmitDialog" type="Ghost"/>
+</endButton>
+    </Dialog>
+</core:FragmentDefinition>

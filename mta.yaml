@@ -1,0 +1,72 @@
+_schema-version: '3.1'
+ID: Projectdata
+version: 1.0.0
+description: "A simple CAP project."
+parameters:
+  enable-parallel-deployments: true
+build-parameters:
+  before-all:
+    - builder: custom
+      commands:
+        - npx cds build --production
+modules:
+  - name: innventCDS
+    type: nodejs
+    path: gen/srv
+    parameters:
+      buildpack: nodejs_buildpack
+    build-parameters:
+      builder: npm
+    provides:
+      - name: srv-api # required by consumers of CAP services (e.g. approuter)
+        properties:
+          srv-url: ${default-url}
+    requires:
+      - name: postgres-dev
+      - name: innvent-uaa
+
+  - name: InnventUI
+    type: approuter.nodejs
+    path: app
+    parameters:
+      keep-existing-routes: true
+      disk-quota: 256M
+      memory: 256M
+    requires:
+      - name: srv-api
+        group: destinations
+        properties:
+          name: srv-api # must be used in xs-app.json as well
+          url: ~{srv-url}
+          forwardAuthToken: true
+      - name: innvent-uaa
+
+  - name: innvent-postgres-deployer
+    type: nodejs
+    path: gen/pg
+    parameters:
+      buildpack: nodejs_buildpack
+      no-route: true
+      no-start: true
+      tasks:
+        - name: deploy-to-postgresql
+          command: npm start
+    requires:
+      - name: innventCDS
+      - name: postgres-dev
+
+resources:
+  - name: postgres-dev
+    type: org.cloudfoundry.managed-service
+    parameters:
+      service: postgresql-db
+      service-plan: standard
+  - name: innvent-uaa
+    type: org.cloudfoundry.managed-service
+    parameters:
+      service: xsuaa
+      service-plan: application
+      path: ./xs-security.json
+      config:
+        xsappname: innventtest
+        tenant-mode: dedicated

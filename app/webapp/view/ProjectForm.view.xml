@@ -1,0 +1,61 @@
+<mvc:View controllerName="innventproject.controller.ProjectForm"
+	xmlns:mvc="sap.ui.core.mvc"
+	xmlns="sap.m" height="100%"
+	xmlns:form="sap.ui.layout.form"
+	xmlns:core="sap.ui.core"
+	xmlns:u="sap.ui.unified" displayBlock="true" busyIndicatorDelay="0">
+	<IllustratedMessage
+        id="ProjectSuccess"
+        title="Project Submitted"
+        visible="false"
+        description="Congratulations! Your project submission has been successfully completed.
+		Further updates will be communicated to you via email."
+        illustrationSize="Dialog"
+        illustrationType="tnt-Success">
+    </IllustratedMessage>
+	<Page id="_IDGenPage1" title="Project Form" titleAlignment="Center">
+		<content>
+			<Wizard id="CreateProductWizard" finishButtonText="Submit" class="sapUiResponsivePadding--header sapUiResponsivePadding--content" complete="wizardCompletedHandler">
+
+				<WizardStep id="ProjectInfo" validated="false" title="Product Information" activate="projectInfoValidation">
+					<form:SimpleForm id="_IDGenSimpleForm1" editable="true" layout="ResponsiveGridLayout">
+						<Label id="idProjectName" text=" Project Name" required="true"/>
+						<Input valueStateText="Enter 3 symbols or more" id="ProjectName" value="{projectForm>/projectname}" placeholder="Enter name with length greater than 3" liveChange="projectInfoValidation"/>
+						<Label id="idProjectStatement" required="true" text="Project Statement"/>
+						<TextArea id="ProjectStatement" value="{projectForm>/problemstatement}" rows="8" liveChange="projectInfoValidation"/>
+						<Label id="idMentorName" text="Mentor Name" required="true"/>
+						<Input type="Text" id="MentorName" value="{projectForm>/mentorName}" liveChange="projectInfoValidation"/>
+						<Label id="idProjectOwnerName" text="Project Owner Name" required="true"/>
+						<Input type="Text" id="ProjectOwnerName" value="{projectForm>/projectOwnerName}" liveChange="projectInfoValidation"/>
+						<Label id="idLobHead" text="LOB Head" required="true"/>
+						<Input type="Text" id="LobHead" value="{projectForm>/lobHead}" liveChange="projectInfoValidation"/>
+						<Label id="idLobName" text="LOB Name" required="true"/>
+						<Input type="Text" id="LobName" value="{projectForm>/lobName}" liveChange="projectInfoValidation"/>
+					</form:SimpleForm>
+				</WizardStep>
+				<WizardStep id="OptionalInfoStep" validated="false" title="Technical Information">
+
+					<form:SimpleForm id="_IDGenSimpleForm2" editable="true" layout="ResponsiveGridLayout">
+						<Label id= "idOverallEffort" text="Overall Effort" required="true"/>
+						<Input id="OverallEffort" placeholder="25 Working Days * 5 member team = 125" type="Number" value="{projectForm>/overallefforts}" liveChange="optionalInfoValidation"/>
+						<Label id="idTech" text="Technologies Used" required="true" labelFor="Tech"/>
+						<TextArea id="Tech" growing="true" value="{projectForm>/technologies}"/>
+						<Label id="idSetup" text="Setup to be used if any Specific" required="true"/>
+						<TextArea id="Setup" growing="true" value="{projectForm>/setup}"/>
+						<Label id="idPrerequisties" text="Any Other Prerequisites" required="true"/>
+						<TextArea id="Prerequisties" growing="true" value="{projectForm>/prerequisites}"/>
+					</form:SimpleForm>
+				</WizardStep>
+				<WizardStep id="idConclusion" validated="true" title="Benefits" activate="conclusionInfoValidate" complete = "onSubmit">
+					<form:SimpleForm id="idBenefitForm" editable="true" layout="ResponsiveGridLayout">
+						<Label id="idExpected" required="true" text="Expected Deliverables"/>
+						<TextArea id="Expected" growing="true" value="{projectForm>/expectedDeliverables}" liveChange="conclusionInfoValidate" />
+						<Label id="idBenefit" required="true" text="How SAP will be Benefitted"></Label>
+						<TextArea id="Benefit" growing="true" value="{projectForm>/sapbenefits}" liveChange="conclusionInfoValidate" />
+					</form:SimpleForm>
+				</WizardStep>
+			</Wizard>
+		</content>
+	</Page>
+
+</mvc:View>

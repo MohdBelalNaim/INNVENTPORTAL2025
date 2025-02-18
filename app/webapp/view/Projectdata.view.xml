@@ -1,0 +1,31 @@
+<mvc:View controllerName="innventproject.controller.Projectdata"
+    xmlns="sap.m"
+    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+    xmlns:uxap="sap.uxap"
+    xmlns:smartFilterBar="sap.ui.comp.smartfilterbar"
+    xmlns:smartTable="sap.ui.comp.smarttable">
+    <Page id="page" title="Project Data">
+
+        <smartFilterBar:SmartFilterBar id="smartFilterBar" entitySet="Projects" enableBasicSearch="true" showClearOnFB="true" width="100%" class="sapUiTinyMargin">
+            <smartFilterBar:controlConfiguration>
+                <smartFilterBar:ControlConfiguration id="filter1" key="projectname" visibleInAdvancedArea="true" label="Project Name"/>
+                <smartFilterBar:ControlConfiguration id="filter2" key="technologies" visibleInAdvancedArea="true" label="Technology"/>
+                <smartFilterBar:ControlConfiguration id="filter3" key="overallefforts" visibleInAdvancedArea="true" label="Overall Effort"/>
+            </smartFilterBar:controlConfiguration>
+            <smartFilterBar:layoutData>
+                <FlexItemData id="flex1" shrinkFactor="0" />
+            </smartFilterBar:layoutData>
+        </smartFilterBar:SmartFilterBar>
+
+        <smartTable:SmartTable id="ID" entitySet="Projects" height="100%" initiallyVisibleFields="projectname,problemstatement,overallefforts,technologies,setup,prerequisites,expectedDeliverables,sapbenefits,lobHead,lobName,mentorName,projectOwnerName,modifiedBy,modifiedAt,createdBy,createdAt" smartFilterId="smartFilterBar" tableType="Table" beforeExport="onBeforeExport" useVariantManagement="false" useTablePersonalisation="true" header="Projects" showRowCount="true" persistencyKey="SmartTableAnalytical_Explored" enableAutoBinding="true" demandPopin="true" class="sapUiResponsiveContentPadding" enableAutoColumnWidth="true">
+            <smartTable:customToolbar>
+                <OverflowToolbar id="customtoolbar" design="Transparent">
+                    <ToolbarSpacer id="toolbarSpacer" />
+                    <Button id="btnEdit" icon="sap-icon://edit" enabled="false" press="onProjectEdit" />
+                    <Button id="btnCreateProject" text="{i18n>CREATE}" enabled="true" press="onCreateProject" />
+                </OverflowToolbar>
+            </smartTable:customToolbar>
+        </smartTable:SmartTable>
+
+    </Page>
+</mvc:View>
