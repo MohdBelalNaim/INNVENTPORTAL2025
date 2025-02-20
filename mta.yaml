@@ -43,7 +43,7 @@ modules:
 
   - name: innvent-postgres-deployer
     type: nodejs
-    path: gen/pg
+    path: db  # Updated from gen/pg to db
     parameters:
       buildpack: nodejs_buildpack
       no-route: true
